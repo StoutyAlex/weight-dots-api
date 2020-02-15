@@ -29,8 +29,17 @@ const broadcast = (room, data) => {
   }
 };
 
+const broadcastAll = (room, data) => {
+  try {
+    socket.emit(room, data);
+  } catch (err) {
+    console.error(`Socket broadcast failed room: ${room}`);
+  }
+}
+
 module.exports = {
   setup,
   close,
   broadcast,
+  broadcastAll,
 };
