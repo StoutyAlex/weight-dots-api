@@ -6,5 +6,5 @@ if (process.env.MONGO_DB_URI) {
 
 module.exports = {
   DB_URI,
-  PORT: 3001,
+  PORT: 3001
 };
