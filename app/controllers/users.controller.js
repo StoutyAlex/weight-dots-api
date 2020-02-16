@@ -9,9 +9,9 @@ router.get('/', async (req, res) => {
 
   try {
     const newUser = await userService.login({ username, password });
-    return success(res, newUser);
+    success(res, newUser);
   } catch (err) {
-    return error(res, err)
+    error(res, err)
   }
 });
 
@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
   try {
     await userService.create({ username, password });
     const loginUser = await userService.login({ username, password });
-    return success(res, loginUser);
+    success(res, loginUser);
   } catch (err) {
     error(res, err)
   }
