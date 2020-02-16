@@ -3,6 +3,16 @@ const bcrypt = require('bcryptjs');
 
 const Users = require('../models/users.model');
 
+const _delete = async (userId) => {
+  const user = await Users.findByIdAndRemove(userId);
+  return user;
+}
+
+const getAll = async () => {
+  const users = await Users.find({});
+  return users;
+}
+
 const login = async ({ username, password }) => {
   const user = await Users.findOne({ username });
 
@@ -20,7 +30,6 @@ const login = async ({ username, password }) => {
     statusCode: 400,
     message: 'Could not find user at login...',
   }
-
 };
 
 const create = async ({ username, password }) => {
@@ -50,5 +59,7 @@ const create = async ({ username, password }) => {
 
 module.exports = {
   login,
-  create
+  create,
+  getAll,
+  _delete
 };

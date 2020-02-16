@@ -14,7 +14,8 @@ UserSchema.post('save', (doc) => {
   socket.broadcastAll('users', doc);
 });
 
-UserSchema.post('remove', (doc) => {
+UserSchema.post('findOneAndRemove', (doc) => {
+  console.log('user-removed');
   socket.broadcastAll('users', doc);
 });
 

@@ -5,6 +5,26 @@ const { success, error } = require('../helpers/response');
 const userService = require('../services/users.service');
 
 router.get('/', async (req, res) => {
+  try {
+    const users = await userService.getAll();
+    success(res, users);
+  } catch (err) {
+    error(res, err);
+  }
+});
+
+router.delete('/', async (req, res) => {
+  const { id } = req.body;
+
+  try {
+    const user = await userService._delete(id);
+    success(res, user);
+  } catch (err) {
+    error(res, err);
+  }
+});
+
+router.get('/login', async (req, res) => {
   const { username, password } = req.body;
 
   try {
@@ -15,7 +35,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
   const { username, password } = req.body;
 
   try {
