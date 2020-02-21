@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken');
-const auth = require('../../app/middleware/auth');
+const auth = require('../../../app/middleware/auth');
 
-const response = require('../../app/helpers/response');
+const response = require('../../../app/helpers/response');
 
-jest.mock('../../app/helpers/response');
+jest.mock('../../../app/helpers/response');
 
 const mockRequest = {
   header: jest.fn().mockReturnValue('Bearer bearer-token'),

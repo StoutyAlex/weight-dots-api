@@ -1,4 +1,4 @@
-const response = require('../../app/helpers/response');
+const response = require('../../../app/helpers/response');
 
 const json = jest.fn();
 
