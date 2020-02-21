@@ -13,8 +13,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.delete('/', async (req, res) => {
-  const { id } = req.body;
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
 
   try {
     const user = await userService._delete(id);
