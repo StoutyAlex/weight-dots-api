@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "test": "jest --coverage",
     "start": "node server",
     "start:dev": "nodemon"
   },
@@ -20,5 +21,9 @@
     "mongoose": "^5.9.0",
     "nodemon": "^2.0.2",
     "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0",
+    "supertest": "^4.0.2"
   }
 }
