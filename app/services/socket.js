@@ -7,17 +7,11 @@ const setup = (server) => {
     transports: ['polling'],
   });
 
-  socket.on('connect', (sock) => {
-    console.log('connected client');
-  });
-
   socket.adapter();
 };
 
 const close = (callback) => {
-  if (socket) {
-    socket.close(callback);
-  }
+  socket.close(callback);
 };
 
 const broadcast = (room, data) => {
