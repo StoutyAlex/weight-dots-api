@@ -27,7 +27,7 @@ const login = async ({ username, password }) => {
   }
 
   throw {
-    statusCode: 400,
+    statusCode: 404,
     message: 'Could not find user at login...',
   }
 };
@@ -46,10 +46,7 @@ const create = async ({ username, password }) => {
     password
   });
 
-  // hash password
-  if (password) {
-    user.hash = bcrypt.hashSync(password, 10);
-  }
+  user.hash = bcrypt.hashSync(password, 10);
 
   // save user
   const newUser = await user.save();
@@ -61,5 +58,5 @@ module.exports = {
   login,
   create,
   getAll,
-  _delete
+  delete: _delete,
 };

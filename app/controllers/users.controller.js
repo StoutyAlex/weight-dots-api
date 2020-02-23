@@ -17,7 +17,7 @@ router.delete('/:id', async (req, res) => {
   const { id } = req.params;
 
   try {
-    const user = await userService._delete(id);
+    const user = await userService.delete(id);
     success(res, user);
   } catch (err) {
     error(res, err);

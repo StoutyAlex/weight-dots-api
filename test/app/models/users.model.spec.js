@@ -38,7 +38,7 @@ describe('User Model ', () => {
     const socketSpy = jest.spyOn(socket, 'broadcastAll');
 
     const user = await usersService.create(userComplete);
-    await usersService._delete(user._id)
+    await usersService.delete(user._id);
 
     expect(socketSpy).toHaveBeenCalledTimes(2);
   });

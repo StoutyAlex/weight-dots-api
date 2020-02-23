@@ -46,7 +46,7 @@ describe('/api/users', () => {
 
   describe('DELETE /api/users/:id', () => {
     it('should successfully create a source and return the expected response', (done) => {
-      jest.spyOn(usersService, '_delete').mockResolvedValue(mockUsers[0]);
+      jest.spyOn(usersService, 'delete').mockResolvedValue(mockUsers[0]);
   
       request(app)
         .delete('/api/users/1234')
@@ -60,7 +60,7 @@ describe('/api/users', () => {
     });
 
     it('should successfully create a source and return the expected response', (done) => {
-      jest.spyOn(usersService, '_delete').mockImplementation(() => { throw new Error('Error deleting user') });
+      jest.spyOn(usersService, 'delete').mockImplementation(() => { throw new Error('Error deleting user') });
 
       request(app)
         .delete('/api/users/1234')
